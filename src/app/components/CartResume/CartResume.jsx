@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 export default function CartResume({ totalPrice, handleChangeCoupon }) {
     const [couponEnabled, setCouponEnabled] = useState(false);
-    const [couponName, setCouponName] = useState("rocketset");
+    const [couponName, setCouponName] = useState("rocketseat");
 
     return (
         <div>
-            Total: {totalPrice()}
+            Total: {totalPrice}
             {couponEnabled && (
                 <>
                     <button

@@ -37,6 +37,6 @@ export const items = [
 ];
 
 export const couponsOptions = [
-    { name: "rocketseat", percentualDiscount: 30 },
-    { name: "neverstoplearning", percentualDiscount: 50 },
+    { name: "rocketseat", percentualDiscount: 0.3 },
+    { name: "neverstoplearning", percentualDiscount: 0.5 },
 ];

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import styles from "./page.module.css";
 import Cart from "./components/Cart/Cart";
 import { items, couponsOptions } from "./data";
@@ -9,12 +9,11 @@ export default function Home() {
     const [isCartOpen, setIsCartOpen] = useState(true);
     const [coupon, setCoupon] = useState("");
 
-    const isCouponValid = (coupon) => {
-        console.log(coupon);
-        return couponsOptions.find((coupon) => coupon.name === coupon);
+    const isCouponValid = (actualCoupon) => {
+        return couponsOptions.find((coupon) => coupon.name === actualCoupon);
     };
 
-    const totalPrice = () => {
+    const totalPrice = useMemo(() => {
         let total = 0;
 
         for (let i = 0; i < cartItems.length; i++) {
@@ -22,15 +21,13 @@ export default function Home() {
             total += price * quantity;
         }
 
-        console.log("loop");
-
         if (coupon) {
-            const actualCoupon = isCouponValid();
-            if (actualCoupon) total *= actualCoupon.percentualDiscount;
+            const actualCoupon = isCouponValid(coupon);
+            if (actualCoupon) total *= 1 - actualCoupon.percentualDiscount;
         }
 
         return total;
-    };
+    }, [coupon, cartItems]);
 
     const handleCart = () => {
         setIsCartOpen((cart) => !cart);
@@ -45,7 +42,7 @@ export default function Home() {
             {coupon &&
                 isCouponValid(coupon) &&
                 `Coupon of ${
-                    isCouponValid(coupon).percentualDiscount
+                    isCouponValid(coupon).percentualDiscount * 100
                 }% applied`}
             {isCartOpen && (
                 <Cart
