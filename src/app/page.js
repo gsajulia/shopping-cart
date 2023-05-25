@@ -26,7 +26,7 @@ export default function Home() {
             if (actualCoupon) total *= 1 - actualCoupon.percentualDiscount;
         }
 
-        return total;
+        return parseFloat(total).toFixed(2);
     }, [coupon, cartItems]);
 
     const handleCart = () => {
@@ -44,7 +44,7 @@ export default function Home() {
                 `Coupon of ${
                     isCouponValid(coupon).percentualDiscount * 100
                 }% applied`}
-            {isCartOpen && (
+            {isCartOpen ? (
                 <Cart
                     items={cartItems}
                     setItems={setCartItems}
@@ -52,7 +52,7 @@ export default function Home() {
                     totalPrice={totalPrice}
                     handleChangeCoupon={handleChangeCoupon}
                 />
-            )}
+            ) : <button onClick={handleCart}>open</button>}
         </main>
     );
 }

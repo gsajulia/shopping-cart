@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #18181b;
+  padding: 2rem;
+}
+
+.totalPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.totalPrice span:nth-child(1) {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #e4e4e7;
+}
+
+.totalPrice span:nth-child(2) {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #f9fafb;
+}
+
+.addCoupon {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+
+  text-align: right;
+  background: none;
+  border: none;
+
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+
+  color: #a855f7;
+}
+
+.addCoupon:hover {
+  cursor: pointer;
+}
+
+.applyCoupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem 0 1rem 0;
+}
+.applyCouponButton {
+  padding: 0.5rem 1rem;
+  color: white;
+
+  border: none;
+  background: #9333ea;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.inputCoupon {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+
+  color: #a855f7;
+
+  background: rgba(255, 255, 255, 0.903);
+  border-radius: 2rem;
+  padding-left: 1rem;
+  border: none;
+  text-decoration: none;
+}
+
+.containerButton {
+  text-align: center;
+}
+
+.finishButton {
+  margin-top: 2rem;
+  padding: 1.25rem 6.9375rem;
+  color: white;
+
+  border: none;
+  background: #9333ea;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.finishButton:hover {
+  filter: brightness(120%);
+}

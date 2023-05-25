@@ -1,38 +1,45 @@
+import Image from "next/image";
+import monitor from "../../public/monitor.svg"
+import gamerChair from "../../public/gamerChair.svg"
+import gamerKeyboard from "../../public/gamerKeyboard.svg"
+import headset from "../../public/headset.svg"
+import gamerDuck from "../../public/gamerDuck.svg"
+
 export const items = [
     {
         id: 1,
         title: "Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD",
-        price: 8599.9,
+        price: 8599.90,
         quantity: 1,
-        img: "",
+        img: monitor,
     },
     {
         id: 2,
-        title: "Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD",
-        price: 8599.9,
+        title: "Cadeira Gamer  RGB - Preta com Iluminação (Led)",
+        price: 959.90,
         quantity: 1,
-        img: "",
+        img: gamerChair,
     },
     {
         id: 3,
-        title: "Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD",
-        price: 8599.9,
+        title: "Teclado Gamer Mecânico Low Profile RGB AW510K 580",
+        price: 1002.90,
         quantity: 1,
-        img: "",
+        img: gamerKeyboard,
     },
     {
         id: 4,
-        title: "Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD",
-        price: 8599.9,
+        title: "Headset Gamer RGB Preto",
+        price: 550.90,
         quantity: 1,
-        img: "",
+        img: headset,
     },
     {
         id: 5,
-        title: "Monitor Gamer Curvo 49 DQHD, 240Hz, 1ms, HDMI e DisplayPort, HDR 1000, FreeSync Premium, Ajuste de Altura - LC49G95TSSLXZD",
-        price: 8599.9,
+        title: "A fanstastic Duck Gamer",
+        price: 150.90,
         quantity: 1,
-        img: "",
+        img: gamerDuck,
     },
 ];
 

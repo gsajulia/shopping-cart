@@ -1,52 +1,57 @@
 import CartHeader from "../CartHeader/CartHeader";
 import CartItem from "../CartItem/CartItem";
 import CartResume from "../CartResume/CartResume";
+import styles from "./cart.module.css";
 
 export default function Cart({
-    items,
-    setItems,
-    handleCart,
-    totalPrice,
-    handleChangeCoupon,
+  items,
+  setItems,
+  handleCart,
+  totalPrice,
+  handleChangeCoupon,
 }) {
-    const minusItem = (index) => {
-        if (items[index].quantity <= 0) return;
-        const tempItems = [...items];
-        tempItems[index].quantity--;
-        setItems(tempItems);
-    };
+  const minusItem = (index) => {
+    if (items[index].quantity <= 0) return;
+    const tempItems = [...items];
+    tempItems[index].quantity--;
+    setItems(tempItems);
+  };
 
-    const addItem = (index) => {
-        const tempItems = [...items];
-        tempItems[index].quantity++;
-        setItems(tempItems);
-    };
+  const addItem = (index) => {
+    const tempItems = [...items];
+    tempItems[index].quantity++;
+    setItems(tempItems);
+  };
 
-    return (
-        <div
-            style={{
-                width: 400,
-                height: "100%",
-                background: "black",
-                float: "right",
-                color: "white",
-            }}
-        >
-            <CartHeader itemsLength={items.length} onCloseCart={handleCart} />
-            {items.map(({ title, price, quantity, img }, index) => (
-                <CartItem
-                    minusItem={() => minusItem(index)}
-                    addItem={() => addItem(index)}
-                    title={title}
-                    price={price}
-                    quantity={quantity}
-                    img={img}
-                />
-            ))}
-            <CartResume
-                totalPrice={totalPrice}
-                handleChangeCoupon={handleChangeCoupon}
-            />
-        </div>
-    );
+  return (
+    <div
+      style={{
+        width: 428,
+        height: "auto",
+        background: "#1E1E1E",
+        float: "right",
+        color: "white",
+        zIndex: 2,
+      }}
+    >
+      <CartHeader items={items} onCloseCart={handleCart} />
+      <div className={styles.cardItem}>
+        {items.map(({ id, title, price, quantity, img }, index) => (
+          <CartItem
+            minusItem={() => minusItem(index)}
+            addItem={() => addItem(index)}
+            title={title}
+            price={parseFloat(price).toFixed(2)}
+            quantity={quantity}
+            img={img}
+            key={id}
+          />
+        ))}
+      </div>
+      <CartResume
+        totalPrice={totalPrice}
+        handleChangeCoupon={handleChangeCoupon}
+      />
+    </div>
+  );
 }
