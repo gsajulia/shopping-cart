@@ -2,8 +2,8 @@ import Image from "next/image";
 import styles from "./cartItem.module.css";
 
 export default function CartItem({
-  addItem,
-  minusItem,
+  increaseItem,
+  decreaseItem,
   title,
   price,
   quantity,
@@ -19,11 +19,11 @@ export default function CartItem({
         <div className={styles.valueItem}>
           <span className={styles.priceItem}>R$ {price}</span>
           <div className={styles.switchQuantityItems}>
-            <button className={styles.minusButton} onClick={minusItem}>
+            <button className={styles.minusButton} onClick={decreaseItem}>
               -
             </button>
             <span className={styles.quantityItem}>{quantity}</span>
-            <button className={styles.plusButton} onClick={addItem}>
+            <button className={styles.plusButton} onClick={increaseItem}>
               +
             </button>
           </div>

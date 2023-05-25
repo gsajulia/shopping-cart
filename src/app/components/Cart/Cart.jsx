@@ -10,14 +10,14 @@ export default function Cart({
   totalPrice,
   handleChangeCoupon,
 }) {
-  const minusItem = (index) => {
+  const decreaseItem = (index) => {
     if (items[index].quantity <= 0) return;
     const tempItems = [...items];
     tempItems[index].quantity--;
     setItems(tempItems);
   };
 
-  const addItem = (index) => {
+  const increaseItem = (index) => {
     const tempItems = [...items];
     tempItems[index].quantity++;
     setItems(tempItems);
@@ -38,8 +38,8 @@ export default function Cart({
       <div className={styles.cardItem}>
         {items.map(({ id, title, price, quantity, img }, index) => (
           <CartItem
-            minusItem={() => minusItem(index)}
-            addItem={() => addItem(index)}
+            decreaseItem={() => decreaseItem(index)}
+            increaseItem={() => increaseItem(index)}
             title={title}
             price={parseFloat(price).toFixed(2)}
             quantity={quantity}
