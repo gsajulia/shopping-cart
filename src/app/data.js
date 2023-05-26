@@ -12,6 +12,7 @@ export const items = [
         price: 8599.90,
         quantity: 1,
         img: monitor,
+        alt: "imagem de um monitor",
     },
     {
         id: 2,
@@ -19,6 +20,7 @@ export const items = [
         price: 959.90,
         quantity: 1,
         img: gamerChair,
+        alt: "imagem de uma cadeira gamer",
     },
     {
         id: 3,
@@ -26,6 +28,7 @@ export const items = [
         price: 1002.90,
         quantity: 1,
         img: gamerKeyboard,
+        alt: "imagem de um teclado gamer mecânico",
     },
     {
         id: 4,
@@ -33,6 +36,7 @@ export const items = [
         price: 550.90,
         quantity: 1,
         img: headset,
+        alt: "imagem de um headset",
     },
     {
         id: 5,
@@ -40,6 +44,7 @@ export const items = [
         price: 150.90,
         quantity: 1,
         img: gamerDuck,
+        alt: "imagem de um duck gamer",
     },
 ];
 

@@ -52,7 +52,7 @@ export default function Home() {
                     totalPrice={totalPrice}
                     handleChangeCoupon={handleChangeCoupon}
                 />
-            ) : <button onClick={handleCart}>open</button>}
+            ) : <button className={styles.returnCartButton} onClick={handleCart}>Abrir Carrinho</button>}
         </main>
     );
 }

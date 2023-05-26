@@ -3,3 +3,13 @@
 
   overflow-y: scroll;
 }
+
+@keyframes cardItemAppear {
+  0% {
+    transform: translateX(-100deg);
+  }
+  50% {
+  }
+  100% {
+  }
+}

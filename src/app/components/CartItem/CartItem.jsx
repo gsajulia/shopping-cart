@@ -8,11 +8,12 @@ export default function CartItem({
   price,
   quantity,
   img,
+  alt,
 }) {
   return (
     <div className={styles.container}>
       <div>
-        <Image src={img} alt="" width={104} height={104} />
+        <Image src={img} alt={alt} width={104} height={104} />
       </div>
       <div className={styles.descriptionItem}>
         <p className={styles.titleItems}>{title}</p>
