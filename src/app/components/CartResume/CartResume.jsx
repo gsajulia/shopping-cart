@@ -1,31 +1,47 @@
 import { useState } from "react";
-export default function CartResume({ totalPrice, handleChangeCoupon }) {
-    const [couponEnabled, setCouponEnabled] = useState(false);
-    const [couponName, setCouponName] = useState("rocketseat");
+import styles from "./cartResume.module.css";
+import Image from "next/image";
+import tagCoupon from "../../../../public/tagCoupon.svg";
 
-    return (
-        <div>
-            Total: {totalPrice}
-            {couponEnabled && (
-                <>
-                    <button
-                        onClick={() => {
-                            handleChangeCoupon(couponName);
-                            setCouponEnabled(false);
-                        }}
-                    >
-                        Save
-                    </button>
-                    <input
-                        value={couponName}
-                        onChange={(e) => setCouponName(e.target.value)}
-                    />
-                </>
-            )}
-            <button onClick={() => setCouponEnabled(true)}>
-                Adicionar cupom
-            </button>
-            <button>Finalizar Compra</button>
+export default function CartResume({ totalPrice, handleChangeCoupon }) {
+  const [couponEnabled, setCouponEnabled] = useState(false);
+  const [couponName, setCouponName] = useState("rocketseat");
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.totalPrice}>
+        <span>Total:</span>
+        <span>R$ {totalPrice}</span>
+      </div>
+      {couponEnabled && (
+        <div className={styles.applyCoupon}>
+          <button
+            className={styles.applyCouponButton}
+            onClick={() => {
+              handleChangeCoupon(couponName);
+              setCouponEnabled(false);
+            }}
+          >
+            Save
+          </button>
+          <input
+            className={styles.inputCoupon}
+            value={couponName}
+            onChange={(e) => setCouponName(e.target.value)}
+          />
         </div>
-    );
+      )}
+
+      <button
+        className={styles.addCoupon}
+        onClick={() => setCouponEnabled(true)}
+      >
+        <Image src={tagCoupon} alt="icon of tagCoupon" width={24} height={24} />
+        Adicionar cupom
+      </button>
+      <div className={styles.containerButton}>
+        <button className={styles.finishButton}>Finalizar Compra</button>
+      </div>
+    </div>
+  );
 }

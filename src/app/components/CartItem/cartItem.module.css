@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.titleItems {
+  height: 3rem;
+
+  overflow-y: hidden;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.descriptionItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+}
+
+.valueItem {
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.priceItem {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.switchQuantityItems {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.minusButton {
+  font-size: 1.5rem;
+  padding: 12px 19px;
+  border: 1.5px solid #3f3f46;
+  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+  background: transparent;
+  color: #a855f7;
+  cursor: pointer;
+}
+
+.minusButton:hover {
+  filter: brightness(150%);
+}
+
+.quantityItem {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.plusButton {
+  font-size: 1.5rem;
+  padding: 11px 17px;
+  border: 1.5px solid #a855f7;
+  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+  background: transparent;
+  color: #a855f7;
+  cursor: pointer;
+}
+
+.plusButton:hover {
+  filter: brightness(150%);
+}
