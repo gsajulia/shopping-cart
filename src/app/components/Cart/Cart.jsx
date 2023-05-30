@@ -14,18 +14,7 @@ export default function Cart({
     increaseItem,
 }) {
     return (
-        <div
-            style={{
-                width: 428,
-                height: "auto",
-                background: "#1E1E1E",
-                right: 0,
-                top: 0,
-                color: "white",
-                position: "absolute",
-                zIndex: 2,
-            }}
-        >
+        <div className={styles.container}>
             <CartHeader items={items} onCloseCart={handleCart} />
             <div className={styles.cardItem}>
                 {items.map(
@@ -47,6 +36,7 @@ export default function Cart({
                             title={title}
                             price={parseFloat(price).toFixed(2)}
                             quantity={quantity}
+                            alt={alt}
                             img={img}
                             key={id}
                         />

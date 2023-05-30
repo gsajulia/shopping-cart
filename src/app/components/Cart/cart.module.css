@@ -1,15 +1,27 @@
-.cardItem {
-  height: 32rem;
+.container {
+    width: 428;
+    height: auto;
+    background: #1e1e1e;
+    right: 0;
+    top: 0;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    max-width: 100%;
+}
 
-  overflow-y: scroll;
+.cardItem {
+    height: 32rem;
+
+    overflow-y: scroll;
 }
 
 @keyframes cardItemAppear {
-  0% {
-    transform: translateX(-100deg);
-  }
-  50% {
-  }
-  100% {
-  }
+    0% {
+        transform: translateX(-100deg);
+    }
+    50% {
+    }
+    100% {
+    }
 }
