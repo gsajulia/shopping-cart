@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./cartItem.module.css";
+import PriceSection from "../PriceSection/PriceSection";
 
 export default function CartItem({
     increaseItem,
@@ -12,30 +13,20 @@ export default function CartItem({
     alt,
 }) {
     return (
-        <div className={styles.container} onClick={onClick}>
-            <div>
+        <div className={styles.container}>
+            <div onClick={onClick}>
                 <Image src={img} alt={alt} width={104} height={104} />
             </div>
             <div className={styles.descriptionItem}>
-                <p className={styles.titleItems}>{title}</p>
-                <div className={styles.valueItem}>
-                    <span className={styles.priceItem}>R$ {price}</span>
-                    <div className={styles.switchQuantityItems}>
-                        <button
-                            className={styles.minusButton}
-                            onClick={decreaseItem}
-                        >
-                            -
-                        </button>
-                        <span className={styles.quantityItem}>{quantity}</span>
-                        <button
-                            className={styles.plusButton}
-                            onClick={increaseItem}
-                        >
-                            +
-                        </button>
-                    </div>
-                </div>
+                <p className={styles.titleItems} onClick={onClick}>
+                    {title}
+                </p>
+                <PriceSection
+                    decreaseItem={decreaseItem}
+                    increaseItem={increaseItem}
+                    price={price}
+                    quantity={quantity}
+                />
             </div>
         </div>
     );

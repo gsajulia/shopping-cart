@@ -1,12 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
+    height: 100%;
+    gap: 20px;
 }
 
 .container p {
-    width: 350px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 320px;
 }

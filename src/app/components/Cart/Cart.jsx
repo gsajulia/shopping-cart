@@ -5,26 +5,14 @@ import styles from "./cart.module.css";
 
 export default function Cart({
     items,
-    setItems,
     handleCart,
     totalPrice,
     handleChangeCoupon,
     setSelectedItem,
     discountText,
+    decreaseItem,
+    increaseItem,
 }) {
-    const decreaseItem = (index) => {
-        if (items[index].quantity <= 0) return;
-        const tempItems = [...items];
-        tempItems[index].quantity--;
-        setItems(tempItems);
-    };
-
-    const increaseItem = (index) => {
-        const tempItems = [...items];
-        tempItems[index].quantity++;
-        setItems(tempItems);
-    };
-
     return (
         <div
             style={{
@@ -51,6 +39,7 @@ export default function Cart({
                                     quantity,
                                     img,
                                     alt,
+                                    index,
                                 })
                             }
                             decreaseItem={() => decreaseItem(index)}

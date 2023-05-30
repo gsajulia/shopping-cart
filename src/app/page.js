@@ -40,7 +40,27 @@ export default function Home() {
         setCoupon(coupon);
     };
 
-    console.log(selectedItem);
+    const modifySelectedQuantity = (id, quantity) => {
+        if (selectedItem && selectedItem.id === id)
+            setSelectedItem((item) => ({ ...item, quantity }));
+    };
+
+    const decreaseItem = (index) => {
+        if (cartItems[index].quantity <= 0) return;
+        const tempItems = [...cartItems];
+        tempItems[index].quantity--;
+
+        modifySelectedQuantity(cartItems[index].id, tempItems[index].quantity);
+        setCartItems(tempItems);
+    };
+
+    const increaseItem = (index) => {
+        const tempItems = [...cartItems];
+        tempItems[index].quantity++;
+        modifySelectedQuantity(cartItems[index].id, tempItems[index].quantity);
+        setCartItems(tempItems);
+    };
+
     return (
         <main className={styles.main}>
             {selectedItem && (
@@ -49,13 +69,15 @@ export default function Home() {
                     title={selectedItem.title}
                     price={selectedItem.price}
                     alt={selectedItem.alt}
+                    quantity={selectedItem.quantity}
+                    decreaseItem={() => decreaseItem(selectedItem.index)}
+                    increaseItem={() => increaseItem(selectedItem.index)}
                 />
             )}
 
             {isCartOpen ? (
                 <Cart
                     items={cartItems}
-                    setItems={setCartItems}
                     handleCart={handleCart}
                     totalPrice={totalPrice}
                     handleChangeCoupon={handleChangeCoupon}
@@ -67,6 +89,8 @@ export default function Home() {
                               }% applied`
                             : ""
                     }
+                    decreaseItem={decreaseItem}
+                    increaseItem={increaseItem}
                 />
             ) : (
                 <button
