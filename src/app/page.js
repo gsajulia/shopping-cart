@@ -3,10 +3,13 @@ import { useState, useMemo } from "react";
 import styles from "./page.module.css";
 import Cart from "./components/Cart/Cart";
 import { items, couponsOptions } from "./data";
+import Image from "next/image";
+import DetailedItem from "./components/DetailedItem/DetailedItem";
 
 export default function Home() {
     const [cartItems, setCartItems] = useState(items);
     const [isCartOpen, setIsCartOpen] = useState(true);
+    const [selectedItem, setSelectedItem] = useState(null);
     const [coupon, setCoupon] = useState("");
 
     const isCouponValid = (actualCoupon) => {
@@ -37,13 +40,18 @@ export default function Home() {
         setCoupon(coupon);
     };
 
+    console.log(selectedItem);
     return (
         <main className={styles.main}>
-            {coupon &&
-                isCouponValid(coupon) &&
-                `Coupon of ${
-                    isCouponValid(coupon).percentualDiscount * 100
-                }% applied`}
+            {selectedItem && (
+                <DetailedItem
+                    img={selectedItem.img}
+                    title={selectedItem.title}
+                    price={selectedItem.price}
+                    alt={selectedItem.alt}
+                />
+            )}
+
             {isCartOpen ? (
                 <Cart
                     items={cartItems}
@@ -51,8 +59,23 @@ export default function Home() {
                     handleCart={handleCart}
                     totalPrice={totalPrice}
                     handleChangeCoupon={handleChangeCoupon}
+                    setSelectedItem={setSelectedItem}
+                    discountText={
+                        coupon && isCouponValid(coupon)
+                            ? `Coupon of ${
+                                  isCouponValid(coupon).percentualDiscount * 100
+                              }% applied`
+                            : ""
+                    }
                 />
-            ) : <button className={styles.returnCartButton} onClick={handleCart}>Abrir Carrinho</button>}
+            ) : (
+                <button
+                    className={styles.returnCartButton}
+                    onClick={handleCart}
+                >
+                    Abrir Carrinho
+                </button>
+            )}
         </main>
     );
 }
